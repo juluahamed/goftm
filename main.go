@@ -112,7 +112,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Author.ID == s.State.User.ID {
 		return
 	}
-	// If the message is "ping" reply with "Pong!"
+
 	if m.Content == "ftm" {
 		fetchResp,fetchErr := FetchCrypto("fantom")
 		if fetchErr != nil {
@@ -123,7 +123,6 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		s.UpdateListeningStatus(fetchResp)
 	}
 
-	// If the message is "pong" reply with "Ping!"
 	if m.Content == "spirit" {
 		fetchResp,fetchErr := FetchCrypto("spiritswap")
 		if fetchErr != nil {
